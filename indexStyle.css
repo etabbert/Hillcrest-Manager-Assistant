@@ -123,6 +123,12 @@
 	form {
 		display: table;
 		margin: auto 26%;
+		padding-bottom: 0px;
+	}
+	
+	form.query {
+		margin: auto;
+		text-align: center;
 		padding-bottom: 25px;
 	}
 	
@@ -154,6 +160,7 @@
 	
 	.endForm {
 		text-align: center;
+		padding-top: 25px;
 		padding-bottom: 75px;
 	}
 	
@@ -167,7 +174,6 @@
 		box-sizing: border-box;
 		color: #fff;
 		cursor: pointer;
-		display: inline-block;
 		font-family: 'Roboto Mono', monospace;
 		font-size: 15px;
 		line-height: 20px;
