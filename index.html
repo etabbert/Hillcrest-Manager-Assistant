@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="indexStyle.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hillcrest Manager Assistant</title>
+	<script type="text/javascript" src="checkpw.js"></script>
+	<h1 class="titleFont">Hillcrest Manager Assistant</h1>
+</head>
+
+<body>	
+	<div class="main">
+		<form class="login">
+			<input class="entry" id="username" type="text" align="center" placeholder="Username">
+			<input class="entry" id="password" type="password" align="center" placeholder="Password">
+			<button class='loginButton' type='button' align="center" onclick="checkPassword()">Login</a>
+		</form>
+	</div>
+	<div id="error" align="center"><span style="color:red" id="error"></span></div>
+	
+	<!--
+	<button type='button' align='center' onclick='writepwhash()'>Write Password</button>
+	-->
+<footer>
+		<p>Created by Ethan Tabbert</p>
+		<p><a href="mailto:ethanetabbert@gmail.com">Contact</a></p>
+</footer>
+</body>
+
+</html>

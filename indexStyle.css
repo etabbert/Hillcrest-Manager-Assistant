@@ -1,0 +1,200 @@
+	
+	:root {
+		--mainColor: #FFFFFF;
+		--accentColor: #fcb900;
+	}
+
+	.titleFont {
+		font-family: 'Roboto Mono', monospace;
+		font-weight: bold;
+		font-size: 30px;
+		text-align: center;
+		padding-top: 0px;
+	}
+	
+	ul.topnav {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		background-color: #333;
+		overflow: hidden;
+		position: sticky;
+		position: -webkit-sticky;
+		top: 0;
+	}
+	
+	ul.topnav li {
+		display: inline;
+		float: left;
+	}
+	
+	ul.topnav li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+	
+	ul.topnav li a:hover {
+		background-color: #111;
+	}
+	
+	ul.topnav li a.active {
+		background-color: var(--accentColor);
+	}
+	
+	ul.topnav li.right {
+		float: right;
+	}
+	
+	header {
+		
+	}
+	
+	body {
+		font-family: 'Roboto Mono', monospace;
+		margin: 0;
+		background-color: var(--mainColor);
+	}
+	
+	form.login {
+        padding-top: 40px;
+		margin: auto;
+		display: block;
+		max-width: 200px;
+		text-align: center;
+		align-items: center;
+    }
+	
+	.main {
+		
+	}
+	
+	.logoutButton {
+		float: right;
+		margin-top: 0px;
+		appearance: none;
+		background-color: var(--accentColor);
+		border: 1px solid rgba(27, 31, 35, .15);
+		border-radius: 6px;
+		box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+		box-sizing: border-box;
+		color: #fff;
+		cursor: pointer;
+		font-family: 'Roboto Mono', monospace;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 20px;
+		padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+		position: relative;
+		touch-action: manipulation;
+		white-space: nowrap;
+	}
+	
+	.entry {
+		font-size: 15px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-family: 'Roboto Mono', monospace;
+		padding: 0.25em 0.5em;
+		background-color: var(--mainColor);
+		border: 1px solid;
+		border-radius: 10px;
+		transition: 180ms box-shadow ease-in-out;
+		margin-top: 10px;
+		text-align: center;
+	}
+	
+	.entryEmployee {
+		font-size: 15px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-family: 'Roboto Mono', monospace;
+		padding: 0.25em 0.5em;
+		background-color: var(--mainColor);
+		border: 1px solid;
+		border-radius: 10px;
+		transition: 180ms box-shadow ease-in-out;
+		margin-top: 10px;
+		text-align: center;
+		display: entry-cell;
+	}
+	
+	.entryTime {
+		font-size: 15px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		font-family: 'Roboto Mono', monospace;
+		padding: 0.25em 0.5em;
+		background-color: var(--mainColor);
+		border: 1px solid;
+		border-radius: 10px;
+		transition: 180ms box-shadow ease-in-out;
+		margin-top: 10px;
+		text-align: center;
+		display: entry-cell;
+	}
+	
+	.entryLabel {
+		display: table-cell;
+		text-align: right;
+	}
+	
+	form {
+		display: table;
+		margin: auto 26%;
+		padding-bottom: 75px;
+	}
+	
+	.entryRow {
+		display: table-row;
+	}
+	
+	.loginButton {
+		margin-top: 30px;
+		margin-right: auto;
+		appearance: none;
+		background-color: var(--accentColor);
+		border: 1px solid rgba(27, 31, 35, .15);
+		border-radius: 6px;
+		box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+		box-sizing: border-box;
+		color: #fff;
+		cursor: pointer;
+		display: inline-block;
+		font-family: 'Roboto Mono', monospace;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 20px;
+		padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+		user-select: none;
+		-webkit-user-select: none;
+		touch-action: manipulation;
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+	
+	footer {
+		font-size: 12px;
+		text-align: left;
+		padding: 15px 15px 15px 15px;
+		position: fixed;
+		bottom: 0px;
+		width: 25%;
+		height: 50px;
+	}
+
+	@media screen and (max-width: 600px) {
+		ul.topnav li.right, 
+		ul.topnav li {float: none;}
+	}

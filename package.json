@@ -1,0 +1,23 @@
+{
+  "name": "hillcrest-web",
+  "version": "1.0.0",
+  "description": "Testing the repo",
+  "main": "encryption.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebrivera5/Hillcrest-Web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebrivera5/Hillcrest-Web/issues"
+  },
+  "homepage": "https://github.com/sebrivera5/Hillcrest-Web#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  }
+}
