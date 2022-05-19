@@ -3,10 +3,18 @@ function writeEmployee($firstname, $lastname, $studentid, $phone, $email, $check
 	$db = new SQLite3('db/employees.db');
 	$db->exec('BEGIN EXCLUSIVE;');
 	error_log($firstname);
-	$writeDB = "INSERT INTO employees (firstname, lastname, studentid, phone, email, checker, role, mondayStart, mondayStop, tuesdayStart, tuesdayStop, wednesdayStart, wednesdayStop, thursdayStart, thursdayStop, fridayStart, fridayStop, saturdayStart, saturdayStop, sundayStart, sundayStop) values ('$firstname', '$lastname', '$studentid', '$phone', '$email', '$checker', '$role', '$mondayStart', '$mondayStop', '$tuesdayStart', '$tuesdayStop', '$wednesdayStart', '$wednesdayStop', '$thursdayStart', '$thursdayStop', '$fridayStart', '$fridayStop', '$saturdayStart', '$saturdayStop', '$sundayStart', '$sundayStop')";
-	$db->exec($writeDB);
+	$verifyquery = "SELECT studentid FROM employees WHERE studentid == '$studentid'";
+	$verifyID = $db->querySingle($verifyquery, false);
+	if ($verifyID == null) {
+		$dbresult = "Complete";
+		$writeDB = "INSERT INTO employees (firstname, lastname, studentid, phone, email, checker, role, mondayStart, mondayStop, tuesdayStart, tuesdayStop, wednesdayStart, wednesdayStop, thursdayStart, thursdayStop, fridayStart, fridayStop, saturdayStart, saturdayStop, sundayStart, sundayStop) values ('$firstname', '$lastname', '$studentid', '$phone', '$email', '$checker', '$role', '$mondayStart', '$mondayStop', '$tuesdayStart', '$tuesdayStop', '$wednesdayStart', '$wednesdayStop', '$thursdayStart', '$thursdayStop', '$fridayStart', '$fridayStop', '$saturdayStart', '$saturdayStop', '$sundayStart', '$sundayStop')";
+		$db->exec($writeDB);
+	} else {
+		$dbresult = "Incomplete";
+	}
 	$db->exec('END;');
-	return $firstname;
+	$db->close();
+	return $dbresult;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

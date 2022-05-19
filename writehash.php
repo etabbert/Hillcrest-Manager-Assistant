@@ -6,6 +6,7 @@ function writeHash($username, $pwhash) {
 	$writeDBhash = "INSERT INTO login (username, pwhash, isadmin) values ('$username', '$pwhash', 1)";
 	$db->exec($writeDBhash);
 	$db->exec('END;');
+	$db->close();
 	return $username;
 }
 

@@ -1,8 +1,10 @@
 async function writeEmployee() {
 	firstname = document.getElementById('firstname').value;
 	lastname = document.getElementById('lastname').value;
-	studentid = document.getElementById('studentid').value;
-	phone = document.getElementById('phone').value;
+	studentidInput = document.getElementById('studentid').value;
+	let studentid = ('' + studentidInput).replace(/\D/g, '');
+	inputPhone = document.getElementById('phone').value;
+	let phone = ('' + inputPhone).replace(/\D/g, '');
 	email = document.getElementById('email').value;
 	if (document.querySelector('input[name="checker"]:checked') == null) {
 		checker = false;
@@ -14,20 +16,34 @@ async function writeEmployee() {
 	} else {
 		role = document.querySelector('input[name="role"]:checked').value;
 	}
-	mondayStart = document.getElementById('mondayStart').value;
-	mondayStop = document.getElementById('mondayStop').value;
-	tuesdayStart = document.getElementById('tuesdayStart').value;
-	tuesdayStop = document.getElementById('tuesdayStop').value;
-	wednesdayStart = document.getElementById('wednesdayStart').value;
-	wednesdayStop = document.getElementById('wednesdayStop').value;
-	thursdayStart = document.getElementById('thursdayStart').value;
-	thursdayStop = document.getElementById('thursdayStop').value;
-	fridayStart = document.getElementById('fridayStart').value;
-	fridayStop = document.getElementById('fridayStop').value;
-	saturdayStart = document.getElementById('saturdayStart').value;
-	saturdayStop = document.getElementById('saturdayStop').value;
-	sundayStart = document.getElementById('sundayStart').value;
-	sundayStop = document.getElementById('sundayStop').value;	
+	mondayStartInput = document.getElementById('mondayStart').value;
+	let mondayStart = ('' + mondayStartInput).replace(/\D/g, '');
+	mondayStopInput = document.getElementById('mondayStop').value;
+	let mondayStop = ('' + mondayStopInput).replace(/\D/g, '');
+	tuesdayStartInput = document.getElementById('tuesdayStart').value;
+	let tuesdayStart = ('' + tuesdayStartInput).replace(/\D/g, '');
+	tuesdayStopInput = document.getElementById('tuesdayStop').value;
+	let tuesdayStop = ('' + tuesdayStopInput).replace(/\D/g, '');
+	wednesdayStartInput = document.getElementById('wednesdayStart').value;
+	let wednesdayStart = ('' + wednesdayStartInput).replace(/\D/g, '');
+	wednesdayStopInput = document.getElementById('wednesdayStop').value;
+	let wednesdayStop = ('' + wednesdayStopInput).replace(/\D/g, '');
+	thursdayStartInput = document.getElementById('thursdayStart').value;
+	let thursdayStart = ('' + thursdayStartInput).replace(/\D/g, '');
+	thursdayStopInput = document.getElementById('thursdayStop').value;
+	let thursdayStop = ('' + thursdayStopInput).replace(/\D/g, '');
+	fridayStartInput = document.getElementById('fridayStart').value;
+	let fridayStart = ('' + fridayStartInput).replace(/\D/g, '');
+	fridayStopInput = document.getElementById('fridayStop').value;
+	let fridayStop = ('' + fridayStopInput).replace(/\D/g, '');
+	saturdayStartInput = document.getElementById('saturdayStart').value;
+	let saturdayStart = ('' + saturdayStartInput).replace(/\D/g, '');
+	saturdayStopInput = document.getElementById('saturdayStop').value;
+	let saturdayStop = ('' + saturdayStopInput).replace(/\D/g, '');
+	sundayStartInput = document.getElementById('sundayStart').value;
+	let sundayStart = ('' + sundayStartInput).replace(/\D/g, '');
+	sundayStopInput = document.getElementById('sundayStop').value;
+	let sundayStop = ('' + sundayStopInput).replace(/\D/g, '');	
 	
 	let myResponse = await fetch("newemployee.php", {
 		method: 'POST',
@@ -38,4 +54,8 @@ async function writeEmployee() {
 	let result = await myResponse.json();
     let output = JSON.stringify(result)
     console.log(output)
+	
+	if (output == '"Incomplete"') {
+		document.getElementById('error').innerHTML = "This employee ID is already on record!";
+	}
 }
