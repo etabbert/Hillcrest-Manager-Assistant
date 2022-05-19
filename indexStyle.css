@@ -192,6 +192,11 @@
 		width: 25%;
 		height: 50px;
 	}
+	
+	.error {
+		text-align: center;
+		padding-top: 10px;
+	}
 
 	@media screen and (max-width: 600px) {
 		ul.topnav li.right, 

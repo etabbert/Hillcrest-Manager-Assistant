@@ -27,12 +27,7 @@ async function writeEmployee() {
 	saturdayStart = document.getElementById('saturdayStart').value;
 	saturdayStop = document.getElementById('saturdayStop').value;
 	sundayStart = document.getElementById('sundayStart').value;
-	sundayStop = document.getElementById('sundayStop').value;
-	
-	console.log(checker)
-	console.log(role)
-	
-	
+	sundayStop = document.getElementById('sundayStop').value;	
 	
 	let myResponse = await fetch("newemployee.php", {
 		method: 'POST',
