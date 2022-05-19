@@ -10,11 +10,10 @@ async function writeEmployee() {
 		checker = true;
 	}
 	if (document.querySelector('input[name="role"]:checked') == null) {
-		
+		document.getElementById('error').innerHTML = "Please select the employee role";
 	} else {
 		role = document.querySelector('input[name="role"]:checked').value;
 	}
-	role = document.querySelector('input[name="role"]:checked');
 	mondayStart = document.getElementById('mondayStart').value;
 	mondayStop = document.getElementById('mondayStop').value;
 	tuesdayStart = document.getElementById('tuesdayStart').value;
