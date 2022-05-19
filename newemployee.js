@@ -57,5 +57,7 @@ async function writeEmployee() {
 	
 	if (output == '"Incomplete"') {
 		document.getElementById('error').innerHTML = "This employee ID is already on record!";
+	} else {
+		window.location.replace('entryComplete.html');
 	}
 }
