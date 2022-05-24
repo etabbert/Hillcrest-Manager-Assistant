@@ -12,10 +12,20 @@ async function writeEmployee() {
 	}
 	
 	studentidInput = document.getElementById('studentid').value;
-	let studentid = ('' + studentidInput).replace(/\D/g, '');
+	studentidClean = ('' + studentidInput).replace(/\D/g, '');
+	if (studentidClean.length == 9) {
+		studentid = studentidClean;
+	} else {
+		document.getElementById('error').innerHTML = "Please enter a 9 digit student ID starting with 8";
+	}
 	
 	inputPhone = document.getElementById('phone').value;
-	let phone = ('' + inputPhone).replace(/\D/g, '');
+	phoneClean = ('' + inputPhone).replace(/\D/g, '');
+	if (phoneClean.length == 10) {
+		phone = phoneClean;
+	} else {
+		document.getElementById('error').innerHTML = "Please enter a 10 digit phone number";
+	}
 
 	
 	if (document.getElementById('email').value == "") {

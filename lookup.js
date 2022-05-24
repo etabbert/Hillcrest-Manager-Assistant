@@ -23,13 +23,26 @@ async function employeeSearch() {
 	} else {
 		finalText = "";
 		document.getElementById('error').innerHTML = "";
+		
 		if ((typeof result.firstname) == "string") {
+			phone1 = String(result.phone).slice(0,3);
+			phone2 = String(result.phone).slice(3,6);
+			phone3 = String(result.phone).slice(6,10);
+			phoneFormat = '(' + phone1 + ')' + phone2 + '-' + phone3;
+			
 			finalText = result.firstname + " " + result.lastname + " " + result.role + "</br>" + 
-			result.email + " " + result.phone + "</br></br>";
+			result.email + " " + phoneFormat + "</br>" + 
+			`<a href='editUser.html?ID=${result.studentid}'>Edit Employee</a>` + "</br></br>";
 		} else {
 			for (i = 0; i < result.firstname.length; i++) {
+				phone1 = String(result.phone[i]).slice(0,3);
+				phone2 = String(result.phone[i]).slice(3,6);
+				phone3 = String(result.phone[i]).slice(6,10);
+				phoneFormat = '(' + phone1 + ')' + phone2 + '-' + phone3;
+				
 				finalText += result.firstname[i] + " " + result.lastname[i]	+ " " + result.role[i] + "</br>" + 
-				result.email[i] + " " + result.phone[i] + "</br></br>";
+				result.email[i] + " " + phoneFormat + "</br>" + 
+				`<a href='editUser.html?ID=${result.studentid[i]}'>Edit Employee</a>` + "</br></br></br>";
 			}
 		}
 	}
