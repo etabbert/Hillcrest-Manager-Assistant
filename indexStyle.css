@@ -207,6 +207,10 @@
 		height: 20px;
 	}
 	
+	.capitalize {
+		text-transform: capitalize;
+	}
+	
 	.error {
 		text-align: center;
 		padding-top: 10px;

@@ -17,11 +17,11 @@ async function employeeSearch() {
 	
     console.log(result);
 	
+	finalText = "";
+	
 	if (output == "[]") {
-		finalText = "";
 		document.getElementById('error').innerHTML = "No user recorded with this name";
 	} else {
-		finalText = "";
 		document.getElementById('error').innerHTML = "";
 		
 		if ((typeof result.firstname) == "string") {
@@ -30,7 +30,7 @@ async function employeeSearch() {
 			phone3 = String(result.phone).slice(6,10);
 			phoneFormat = '(' + phone1 + ')' + phone2 + '-' + phone3;
 			
-			finalText = result.firstname + " " + result.lastname + " " + result.role + "</br>" + 
+			finalText = result.firstname + " " + result.lastname + " - " + capitalize(result.role) + "</br>" + 
 			result.email + " " + phoneFormat + "</br>" + 
 			`<a href='editUser.html?ID=${result.studentid}'>Edit Employee</a>` + "</br></br>";
 		} else {
@@ -40,7 +40,7 @@ async function employeeSearch() {
 				phone3 = String(result.phone[i]).slice(6,10);
 				phoneFormat = '(' + phone1 + ')' + phone2 + '-' + phone3;
 				
-				finalText += result.firstname[i] + " " + result.lastname[i]	+ " " + result.role[i] + "</br>" + 
+				finalText += result.firstname[i] + " " + result.lastname[i]	+ " - " + capitalize(result.role[i]) + "</br>" + 
 				result.email[i] + " " + phoneFormat + "</br>" + 
 				`<a href='editUser.html?ID=${result.studentid[i]}'>Edit Employee</a>` + "</br></br></br>";
 			}
@@ -48,3 +48,11 @@ async function employeeSearch() {
 	}
 	document.getElementById('queryResults').innerHTML = finalText;
 }
+
+const capitalize = (str) => {
+    if(typeof str === 'string') {
+        return str.replace(/^\w/, c => c.toUpperCase());
+    } else {
+        return '';
+    }
+};
