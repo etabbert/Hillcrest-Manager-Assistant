@@ -1,21 +1,41 @@
 async function writeEmployee() {
-	firstname = document.getElementById('firstname').value;
-	lastname = document.getElementById('lastname').value;
+	if (document.getElementById('firstname').value == "") {
+		document.getElementById('error').innerHTML = "Please enter the employee first name";
+	} else {
+		firstname = document.getElementById('firstname').value;
+	}
+
+	if (document.getElementById('lastname').value == "") {
+		document.getElementById('error').innerHTML = "Please enter the employee last name";
+	} else {
+		lastname = document.getElementById('lastname').value;
+	}
+	
 	studentidInput = document.getElementById('studentid').value;
 	let studentid = ('' + studentidInput).replace(/\D/g, '');
+	
 	inputPhone = document.getElementById('phone').value;
 	let phone = ('' + inputPhone).replace(/\D/g, '');
-	email = document.getElementById('email').value;
+
+	
+	if (document.getElementById('email').value == "") {
+		document.getElementById('error').innerHTML = "Please enter the employee email";
+	} else {
+		email = document.getElementById('email').value;
+	}
+	
 	if (document.querySelector('input[name="checker"]:checked') == null) {
 		checker = false;
 	} else {
 		checker = true;
 	}
+	
 	if (document.querySelector('input[name="role"]:checked') == null) {
 		document.getElementById('error').innerHTML = "Please select the employee role";
 	} else {
 		role = document.querySelector('input[name="role"]:checked').value;
 	}
+	
 	mondayStartInput = document.getElementById('mondayStart').value;
 	let mondayStart = ('' + mondayStartInput).replace(/\D/g, '');
 	mondayStopInput = document.getElementById('mondayStop').value;

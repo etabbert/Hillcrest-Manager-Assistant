@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Hillcrest Manager Assistant</title>
+	<script type="text/javascript" src="lookup.js"></script>
 	<h1 class="titleFont">Hillcrest Manager Assistant</h1>
 	
 	<ul class="topnav">
@@ -26,8 +27,15 @@
 		
 		<form class="query">
 			<input class="entry" id="lastnameQuery" type="text" align="center" placeholder="Enter Lastname"></br>
-			<div class="endForm">
-				<button class='submit' type='button' align="center" onclick="#">Submit</button>
+			<div class="endSubmit">
+				<button class='submit' type='button' align="center" onclick="employeeSearch()">Submit</button>
+			</div>
+			<div class="error">
+				<div id="error" align="center"><span style="color:red" id="error"></span></div>
+			</div>
+			<div class="queryResults">
+				<div id="queryResults" align="center"><span id="queryResults"</span></div>
+				<div id="debug" align="center"><span id="debug"</span></div>
 			</div>
 		</form>
 	</div>

@@ -162,10 +162,20 @@
 		white-space: nowrap;
 	}
 	
+	::-webkit-scrollbar { 
+		display: none; 
+	}
+	
 	.endForm {
 		text-align: center;
 		padding-top: 25px;
 		padding-bottom: 75px;
+	}
+	
+	.endSubmit {
+		text-align: center;
+		padding-top: 25px;
+		padding-bottom: 25px;
 	}
 	
 	.submit {
