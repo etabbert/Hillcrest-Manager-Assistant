@@ -1,0 +1,25 @@
+Pandora: https://128.255.81.3/zone.shtml
+Username: admin
+Password: 123456 
+
+Discipline: http://cougar.its.uiowa.edu/discipline/logs/nonsysuser
+
+Initiating Appointments: https://login.uiowa.edu/uip/login.page?service=http://cougar.its.uiowa.edu/hiring/forms/index
+
+Data Collections: https://login.uiowa.edu/uip/login.page?service=http://apps.studentlife.uiowa.edu/datacollection/
+
+Student Hiring Portal: https://apps.housing.uiowa.edu/seo/sup_dash
+
+UI Self Service: http://hris.uiowa.edu/selfservice/?utm_source=Showcase%20Link&utm_medium=HR%20Se...
+
+HR Links: https://hr.studentlife.uiowa.edu/managers-and-supervisors/
+
+TreeRing: https://treering.iowa.uiowa.edu/TreeRing
+Username: uhdhmp
+Password: Hillcrest1!
+
+Supervisor Resources Link: https://wiki.uiowa.edu/pages/viewpage.action?pageId=184889343
+
+Time Clock Link: https://treering.iowa.uiowa.edu/etimeclock/ClockLogin.aspx?c=1
+
+Handbook: https://dining.uiowa.edu/sites/dining.uiowa.edu/files/wysiwyg_uploads/dining_employee_handbook_2017_final.pdf.
