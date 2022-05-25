@@ -195,16 +195,3 @@ function setStop(stop) {
 		return stop;
 	}
 }
-
-function test() {
-	if (document.getElementById('mondayStart').value) {
-		mondayStartInput = document.getElementById('mondayStart').value;
-		console.log(mondayStartInput);
-		var mondayStartClean = ('' + mondayStartInput).replace(/\D/g, '');
-		console.log(mondayStartClean);
-		var mondayStart = setStart(mondayStartClean);
-		console.log(mondayStart);
-	} else {
-		mondayStart = null;
-	}
-}
