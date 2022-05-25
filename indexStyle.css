@@ -14,6 +14,10 @@
 		empty-cells: show;
 	}
 	
+	.data {
+		vertical-align: top;
+	}
+	
 	tr {
 		height: 50px;
 	}

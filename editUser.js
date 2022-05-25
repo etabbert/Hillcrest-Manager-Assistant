@@ -11,6 +11,14 @@ function gup(name) {
         return results[1];
 } 
 
+const capitalize = (str) => {
+    if(typeof str === 'string') {
+        return str.replace(/^\w/, c => c.toUpperCase());
+    } else {
+        return '';
+    }
+};
+
 async function editUser() {
 	var studentid = gup("ID");
 	
@@ -22,26 +30,30 @@ async function editUser() {
 	
 	let result = await myResponse.json();
     let output = JSON.stringify(result);
-    console.log(result);
 	
-	document.getElementById("firstnameText").innerHTML = result.firstname + " " + result.lastname;
-	document.getElementById("studentidText").innerHTML = result.studentid;
-	document.getElementById("phoneText").innerHTML = result.phone;
-	document.getElementById("emailText").innerHTML = result.email;
-	document.getElementById("checkerText").innerHTML = result.checker;
-	document.getElementById("roleText").innerHTML = result.role;
-	document.getElementById("mondayStartText").innerHTML = result.mondayStart;
-	document.getElementById("mondayStopText").innerHTML = result.mondayStop;
-	document.getElementById("tuesdayStartText").innerHTML = result.tuesdayStart;
-	document.getElementById("tuesdayStopText").innerHTML = result.tuesdayStop;
-	document.getElementById("wednesdayStartText").innerHTML = result.wednesdayStart;
-	document.getElementById("wednesdayStopText").innerHTML = result.wednesdayStop;
-	document.getElementById("thursdayStartText").innerHTML = result.thursdayStart;
-	document.getElementById("thursdayStopText").innerHTML = result.thursdayStop;
-	document.getElementById("fridayStartText").innerHTML = result.fridayStart;
-	document.getElementById("fridayStopText").innerHTML = result.fridayStop;
-	document.getElementById("saturdayStartText").innerHTML = result.saturdayStart;
-	document.getElementById("saturdayStopText").innerHTML = result.saturdayStop;
-	document.getElementById("sundayStartText").innerHTML = result.sundayStart;
-	document.getElementById("sundayStopText").innerHTML = result.sundayStop;
+	phone1 = String(result.phone).slice(0,3);
+	phone2 = String(result.phone).slice(3,6);
+	phone3 = String(result.phone).slice(6,10);
+	phoneFormat = '(' + phone1 + ')' + phone2 + '-' + phone3;
+	
+	document.getElementById("firstnameText").innerHTML = result.firstname + " " + result.lastname + "</br></br>";
+	document.getElementById("studentidText").innerHTML = "Student ID: " + result.studentid + "</br></br>";
+	document.getElementById("phoneText").innerHTML = phoneFormat + "</br></br>";
+	document.getElementById("emailText").innerHTML = result.email + "</br></br>";
+	if (result.checker){document.getElementById("checkerText").innerHTML = "Checker Certified: Yes" + "</br></br>";} else {document.getElementById("checkerText").innerHTML = "Checker Certified: No" + "</br></br>";}
+	document.getElementById("roleText").innerHTML = "Role: " + capitalize(result.role) + "</br></br>";
+	if (result.mondayStart){document.getElementById("mondayStartText").innerHTML = "Monday Start: " + String(result.mondayStart);}
+	if (result.mondayStop){document.getElementById("mondayStopText").innerHTML = "Monday Stop: " + String(result.mondayStop) + "</br></br>";}
+	if (result.tuesdayStart){document.getElementById("tuesdayStartText").innerHTML = "Tuesday Start: " + String(result.tuesdayStart);}
+	if (result.tuesdayStop){document.getElementById("tuesdayStopText").innerHTML = "Tuesday Stop: " + String(result.tuesdayStop) + "</br></br>";}
+	if (result.wednesdayStart){document.getElementById("wednesdayStartText").innerHTML = "Wednesday Start: " + String(result.wednesdayStart);}
+	if (result.wednesdayStop){document.getElementById("wednesdayStopText").innerHTML = "Wednesday Stop: " + String(result.wednesdayStop) + "</br></br>";}
+	if (result.thursdayStart){document.getElementById("thursdayStartText").innerHTML = "Thursday Start: " + String(result.thursdayStart);}
+	if (result.thursdayStop){document.getElementById("thursdayStopText").innerHTML = "Thursday Stop: " + String(result.thursdayStop) + "</br></br>";}
+	if (result.fridayStart){document.getElementById("fridayStartText").innerHTML = "Friday Start: " + String(result.fridayStart);}
+	if (result.fridayStop){document.getElementById("fridayStopText").innerHTML = "Friday Stop: " + String(result.fridayStop) + "</br></br>";}
+	if (result.saturdayStart){document.getElementById("saturdayStartText").innerHTML = "Saturday Start: " + String(result.saturdayStart);}
+	if (result.saturdayStop){document.getElementById("saturdayStopText").innerHTML = "Saturday Stop: " + String(result.saturdayStop) + "</br></br>";}
+	if (result.sundayStart){document.getElementById("sundayStartText").innerHTML = "Sunday Start: " + String(result.sundayStart);}
+	if (result.sundayStop){document.getElementById("sundayStopText").innerHTML = "Sunday Stop: " + String(result.sundayStop) + "</br></br>";}
 }
