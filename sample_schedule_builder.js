@@ -35,13 +35,62 @@ function shuffle(array) {
 
 
 //Generate and shuffle list
-function randomizeList(){
+async function randomizeList(){
     const test1 = ["Sebastian", true]
     const test2 = ["Ethan", true]
     const test3 = ["Andrea", true]
     const test4 = ["Nick", false]
     const test5 = ["Dan", false]
     const test6 = ["Kyle", true]
+
+    //Error handling
+    if (document.getElementById('week_day').value == "") {
+		document.getElementById('error').innerHTML = "No last name provided";
+	} else {
+		document.getElementById('error').innerHTML = "";
+		lastname = document.getElementById('week_day').value;
+	}
+
+    //Testing getting html input
+    console.log(document.getElementById('week_day').value)
+    console.log(document.getElementById('shift_type').value)
+
+    /*For php statement, general flow is mondayStart, mondayStop, etc
+
+    - For the template: <weekday>(Start/Stop)
+    \-> weekDay represents the <weekday>
+    \-> shiftType represents the (Start/Stop)
+
+    to pull:
+    SELECT *
+    FROM employees
+    WHERE column_name BETWEEN value1 AND value2;
+
+    NOTE: We can have separate cases for days of the week.
+    Then within the week day, we have times. Is there an easier way
+    of doing this?
+
+    e.g
+
+    if input is Monday
+        if input is Breakfast
+            pull all employees who work Monday Breakfast
+        elif input is Lunch
+            pull all employees who work Monday Lunch
+        elif input is Dinner
+            do something
+    elif input is Tuesday...
+    etc...
+
+    FOR RARE CASES (people who's shifts start and stop at abnormal times)
+    if start is after the usual start time, but ends either equal or before the stop time, put them in the list
+
+
+    */
+
+    //Here I can pull from the database instead of using these samples
+
+
 
     let randomizedList = [test1,test2,test3,test4,test5,test6]
 
@@ -52,6 +101,7 @@ function randomizeList(){
     return randomizedList
 }
 
+//Generate schedule for anytime
 function generateSchedule(shuffledList){
     var checkerFound = false;
 
@@ -102,4 +152,4 @@ function displayFormatter(){
 
 
 
-displayFormatter()
+//displayFormatter()
