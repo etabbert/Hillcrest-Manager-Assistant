@@ -153,9 +153,6 @@ async function randomizeList(){
     */
 
     //Here I can pull from the database instead of using these samples
-
-
-
     let randomizedList = [test1,test2,test3,test4,test5,test6]
 
     //Test Shuffle
