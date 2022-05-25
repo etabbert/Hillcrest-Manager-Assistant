@@ -15,6 +15,7 @@ async function writeEmployee() {
 	studentidInput = document.getElementById('studentid').value;
 	studentidClean = ('' + studentidInput).replace(/\D/g, '');
 	if (studentidClean.length == 9) {
+		document.getElementById('error').innerHTML = "";
 		studentid = studentidClean;
 	} else {
 		document.getElementById('error').innerHTML = "Please enter a 9 digit student ID starting with 8";
@@ -47,49 +48,152 @@ async function writeEmployee() {
 		role = document.querySelector('input[name="role"]:checked').value;
 	}
 	
-	mondayStartInput = document.getElementById('mondayStart').value;
-	let mondayStart = ('' + mondayStartInput).replace(/\D/g, '');
-	mondayStopInput = document.getElementById('mondayStop').value;
-	let mondayStop = ('' + mondayStopInput).replace(/\D/g, '');
-	tuesdayStartInput = document.getElementById('tuesdayStart').value;
-	let tuesdayStart = ('' + tuesdayStartInput).replace(/\D/g, '');
-	tuesdayStopInput = document.getElementById('tuesdayStop').value;
-	let tuesdayStop = ('' + tuesdayStopInput).replace(/\D/g, '');
-	wednesdayStartInput = document.getElementById('wednesdayStart').value;
-	let wednesdayStart = ('' + wednesdayStartInput).replace(/\D/g, '');
-	wednesdayStopInput = document.getElementById('wednesdayStop').value;
-	let wednesdayStop = ('' + wednesdayStopInput).replace(/\D/g, '');
-	thursdayStartInput = document.getElementById('thursdayStart').value;
-	let thursdayStart = ('' + thursdayStartInput).replace(/\D/g, '');
-	thursdayStopInput = document.getElementById('thursdayStop').value;
-	let thursdayStop = ('' + thursdayStopInput).replace(/\D/g, '');
-	fridayStartInput = document.getElementById('fridayStart').value;
-	let fridayStart = ('' + fridayStartInput).replace(/\D/g, '');
-	fridayStopInput = document.getElementById('fridayStop').value;
-	let fridayStop = ('' + fridayStopInput).replace(/\D/g, '');
-	saturdayStartInput = document.getElementById('saturdayStart').value;
-	let saturdayStart = ('' + saturdayStartInput).replace(/\D/g, '');
-	saturdayStopInput = document.getElementById('saturdayStop').value;
-	let saturdayStop = ('' + saturdayStopInput).replace(/\D/g, '');
-	sundayStartInput = document.getElementById('sundayStart').value;
-	let sundayStart = ('' + sundayStartInput).replace(/\D/g, '');
-	sundayStopInput = document.getElementById('sundayStop').value;
-	let sundayStop = ('' + sundayStopInput).replace(/\D/g, '');	
+	
+	if (document.getElementById('mondayStart').value) {
+		console.log("test");
+		mondayStartInput = document.getElementById('mondayStart').value;
+		var mondayStartClean = ('' + mondayStartInput).replace(/\D/g, '');
+		var mondayStart = setStart(mondayStartClean);
+	} else {
+		mondayStart = null;
+	}
+	
+	if (document.getElementById('mondayStop').value) {
+		mondayStopInput = document.getElementById('mondayStop').value;
+		var mondayStopClean = ('' + mondayStopInput).replace(/\D/g, '');
+		var mondayStop = setStop(mondayStopClean);
+	} else {
+		mondayStop = null;
+	}
+	
+	if (document.getElementById('tuesdayStart').value) {
+		tuesdayStartInput = document.getElementById('tuesdayStart').value;
+		var tuesdayStartClean = ('' + tuesdayStartInput).replace(/\D/g, '');
+		var tuesdayStart = setStart(tuesdayStartClean);
+	} else {
+		tuesdayStart = null;
+	}
+	
+	if (document.getElementById('tuesdayStop').value) {
+		tuesdayStopInput = document.getElementById('tuesdayStop').value;
+		tuesdayStopClean = ('' + tuesdayStopInput).replace(/\D/g, '');
+		tuesdayStop = setStop(tuesdayStopClean);
+	} else {
+		tuesdayStop = null;
+	}
+	
+	if (document.getElementById('wednesdayStart').value) {
+		wednesdayStartInput = document.getElementById('wednesdayStart').value;
+		var wednesdayStartClean = ('' + wednesdayStartInput).replace(/\D/g, '');
+		var wednesdayStart = setStart(wednesdayStartClean);
+	} else {
+		wednesdayStart = null;
+	}
+	
+	if (document.getElementById('wednesdayStop').value) {
+		wednesdayStopInput = document.getElementById('wednesdayStop').value;
+		var wednesdayStopClean = ('' + wednesdayStopInput).replace(/\D/g, '');
+		var wednesdayStop = setStop(wednesdayStopClean);
+	} else {
+		wednesdayStop = null;
+	}
+	
+	if (document.getElementById('thursdayStart').value) {
+		thursdayStartInput = document.getElementById('thursdayStart').value;
+		var thursdayStartClean = ('' + thursdayStartInput).replace(/\D/g, '');
+		var thursdayStart = setStart(thursdayStartClean);
+	} else {
+		thursdayStart = null;
+	}
+	
+	if (document.getElementById('thursdayStop').value) {
+		thursdayStopInput = document.getElementById('thursdayStop').value;
+		var thursdayStopClean = ('' + thursdayStopInput).replace(/\D/g, '');
+		var thursdayStop = setStop(thursdayStopClean);
+	} else {
+		thursdayStop = null;
+	}
+
+	if (document.getElementById('fridayStart').value) {
+		fridayStartInput = document.getElementById('fridayStart').value;
+		var fridayStartClean = ('' + fridayStartInput).replace(/\D/g, '');
+		var fridayStart = setStart(fridayStartClean);
+	} else {
+		fridayStart = null;
+	}
+	
+	if (document.getElementById('fridayStop').value) {	
+		fridayStopInput = document.getElementById('fridayStop').value;
+		var fridayStopClean = ('' + fridayStopInput).replace(/\D/g, '');
+		var fridayStop = setStop(fridayStopClean);
+	} else {
+		fridayStop = null;
+	}
+	
+	if (document.getElementById('saturdayStart').value) {
+		saturdayStartInput = document.getElementById('saturdayStart').value;
+		var saturdayStartClean = ('' + saturdayStartInput).replace(/\D/g, '');
+		var saturdayStart = setStart(saturdayStartClean);
+	} else {
+		saturdayStart = null;
+	}
+	
+	if (document.getElementById('saturdayStop').value) {
+		saturdayStopInput = document.getElementById('saturdayStop').value;
+		var saturdayStopClean = ('' + saturdayStopInput).replace(/\D/g, '');
+		var saturdayStop = setStop(saturdayStopClean);
+	} else {
+		saturdayStop = null;
+	}
+	
+	if (document.getElementById('sundayStart').value) {	
+		sundayStartInput = document.getElementById('sundayStart').value;
+		var sundayStartClean = ('' + sundayStartInput).replace(/\D/g, '');
+		var sundayStart = setStart(sundayStartClean);
+	} else {
+		sundayStart = null;
+	}
+	
+	if (document.getElementById('sundayStop').value) {
+		sundayStopInput = document.getElementById('sundayStop').value;
+		var sundayStopClean = ('' + sundayStopInput).replace(/\D/g, '');	
+		var sundayStop = setStop(sundayStopClean);
+	} else {
+		sundayStop = null;
+	}
 	
 	
-	let myResponse = await fetch("newemployee.php", {
+	
+	var myResponse = await fetch("newemployee.php", {
 		method: 'POST',
 		headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
 		body: JSON.stringify({firstname: firstname, lastname: lastname, studentid: studentid, phone: phone, email: email, checker: checker, role: role, mondayStart: mondayStart, mondayStop: mondayStop, tuesdayStart: tuesdayStart, tuesdayStop: tuesdayStop, wednesdayStart: wednesdayStart, wednesdayStop: wednesdayStop, thursdayStart: thursdayStart, thursdayStop: thursdayStop, fridayStart: fridayStart, fridayStop: fridayStop, saturdayStart: saturdayStart, saturdayStop: saturdayStop, sundayStart: sundayStart, sundayStop: sundayStop})
 	});
 	
-	let result = await myResponse.json();
-    let output = JSON.stringify(result);
+	var result = await myResponse.json();
+    var output = JSON.stringify(result);
     console.log(output)
 	
 	if (output == '"Incomplete"') {
 		document.getElementById('error').innerHTML = "This employee ID is already on record!";
 	} else {
 		window.location.replace('entryComplete.html');
+		window.location.replace('entryComplete.html');
+	}
+}
+
+function setStart(start) {
+	if (start) {
+		if (start < 600) {
+			return 600;
+		}
+	}
+}
+
+function setStop(stop) {
+	if (stop) {
+		if (stop > 2000) {
+			return 2000;
+		}
 	}
 }
