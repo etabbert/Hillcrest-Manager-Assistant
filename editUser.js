@@ -42,18 +42,18 @@ async function editUser() {
 	document.getElementById("emailText").innerHTML = result.email + "</br></br>";
 	if (result.checker){document.getElementById("checkerText").innerHTML = "Checker Certified: Yes" + "</br></br>";} else {document.getElementById("checkerText").innerHTML = "Checker Certified: No" + "</br></br>";}
 	document.getElementById("roleText").innerHTML = "Role: " + capitalize(result.role) + "</br></br>";
-	if (result.mondayStart){document.getElementById("mondayStartText").innerHTML = "Monday Start: " + String(result.mondayStart);}
-	if (result.mondayStop){document.getElementById("mondayStopText").innerHTML = "Monday Stop: " + String(result.mondayStop) + "</br></br>";}
-	if (result.tuesdayStart){document.getElementById("tuesdayStartText").innerHTML = "Tuesday Start: " + String(result.tuesdayStart);}
-	if (result.tuesdayStop){document.getElementById("tuesdayStopText").innerHTML = "Tuesday Stop: " + String(result.tuesdayStop) + "</br></br>";}
-	if (result.wednesdayStart){document.getElementById("wednesdayStartText").innerHTML = "Wednesday Start: " + String(result.wednesdayStart);}
-	if (result.wednesdayStop){document.getElementById("wednesdayStopText").innerHTML = "Wednesday Stop: " + String(result.wednesdayStop) + "</br></br>";}
-	if (result.thursdayStart){document.getElementById("thursdayStartText").innerHTML = "Thursday Start: " + String(result.thursdayStart);}
-	if (result.thursdayStop){document.getElementById("thursdayStopText").innerHTML = "Thursday Stop: " + String(result.thursdayStop) + "</br></br>";}
-	if (result.fridayStart){document.getElementById("fridayStartText").innerHTML = "Friday Start: " + String(result.fridayStart);}
-	if (result.fridayStop){document.getElementById("fridayStopText").innerHTML = "Friday Stop: " + String(result.fridayStop) + "</br></br>";}
-	if (result.saturdayStart){document.getElementById("saturdayStartText").innerHTML = "Saturday Start: " + String(result.saturdayStart);}
-	if (result.saturdayStop){document.getElementById("saturdayStopText").innerHTML = "Saturday Stop: " + String(result.saturdayStop) + "</br></br>";}
-	if (result.sundayStart){document.getElementById("sundayStartText").innerHTML = "Sunday Start: " + String(result.sundayStart);}
-	if (result.sundayStop){document.getElementById("sundayStopText").innerHTML = "Sunday Stop: " + String(result.sundayStop) + "</br></br>";}
+	if (result.mondayStart){document.getElementById("mondayStartText").innerHTML = "Monday</br>Start: " + String(result.mondayStart);}
+	if (result.mondayStop){document.getElementById("mondayStopText").innerHTML = "Stop: " + String(result.mondayStop) + "</br></br>";}
+	if (result.tuesdayStart){document.getElementById("tuesdayStartText").innerHTML = "Tuesday</br>Start: " + String(result.tuesdayStart);}
+	if (result.tuesdayStop){document.getElementById("tuesdayStopText").innerHTML = "Stop: " + String(result.tuesdayStop) + "</br></br>";}
+	if (result.wednesdayStart){document.getElementById("wednesdayStartText").innerHTML = "Wednesday</br>Start: " + String(result.wednesdayStart);}
+	if (result.wednesdayStop){document.getElementById("wednesdayStopText").innerHTML = "Stop: " + String(result.wednesdayStop) + "</br></br>";}
+	if (result.thursdayStart){document.getElementById("thursdayStartText").innerHTML = "Thursday</br>Start: " + String(result.thursdayStart);}
+	if (result.thursdayStop){document.getElementById("thursdayStopText").innerHTML = "Stop: " + String(result.thursdayStop) + "</br></br>";}
+	if (result.fridayStart){document.getElementById("fridayStartText").innerHTML = "Friday</br>Start: " + String(result.fridayStart);}
+	if (result.fridayStop){document.getElementById("fridayStopText").innerHTML = "Stop: " + String(result.fridayStop) + "</br></br>";}
+	if (result.saturdayStart){document.getElementById("saturdayStartText").innerHTML = "Saturday</br>Start: " + String(result.saturdayStart);}
+	if (result.saturdayStop){document.getElementById("saturdayStopText").innerHTML = "Stop: " + String(result.saturdayStop) + "</br></br>";}
+	if (result.sundayStart){document.getElementById("sundayStartText").innerHTML = "Sunday</br>Start: " + String(result.sundayStart);}
+	if (result.sundayStop){document.getElementById("sundayStopText").innerHTML = "Stop: " + String(result.sundayStop) + "</br></br>";}
 }
