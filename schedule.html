@@ -6,6 +6,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="sample_schedule_builder.js"></script>
 	<title>Hillcrest Manager Assistant</title>
 	<h1 class="titleFont">Hillcrest Manager Assistant</h1>
 	
@@ -21,8 +22,24 @@
 </head>
 
 <body>
+
 	<div class="main" align="center">
-		<button class='submit' type='button' align="center" onclick="checkPassword()">Submit</a>
+		<h2 align="center">Generate Schedule</h2>
+		<form class="query">
+			<input class="entry" id="week_day" type="text" align="center" placeholder="Enter Week Day"></br>
+			<input class="entry" id="shift_type" type="text" align="center" placeholder="Enter Shift Type"></br></br>
+			<div>
+				<button class='submit' type='button' align="center" onclick="randomizeList()">Generate</a>
+			</div>
+
+			<div class="error">
+				<div id="error" align="center"><span style="color:red" id="error"></span></div>
+			</div>
+			<div class="queryResults">
+				<div id="queryResults" align="center"><span id="queryResults"</span></div>
+				<div id="debug" align="center"><span id="debug"</span></div>
+		</form>
+		
 	</div>
 
 <footer>
