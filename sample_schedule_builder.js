@@ -44,15 +44,27 @@ function shuffle(array) {
         time[1] = 1000;
     }
     else if (input_type == 'shift3'){
+        time[0] = 1000;
+        time[1] = 1200;
+    }
+    else if (input_type == 'shift4'){
+        time[0] = 1200;
+        time[1] = 1400;
+    }
+    else if (input_type == 'shift5'){
         time[0] = 1500;
+        time[1] = 1700;
+    }
+    else if (input_type == 'shift6'){
+        time[0] = 1700;
         time[1] = 2000;
     }
     else{
         console.log("INVALID TYPE INPUT")
     }
+
     //Test
     console.log(time);
-
     return time;
 
   }
