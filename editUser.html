@@ -6,23 +6,134 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="editUser.js"></script>
 	<title>Hillcrest Manager Assistant</title>
 	<h1 class="titleFont">Hillcrest Manager Assistant</h1>
 	
 	<ul class="topnav">
-		<li><a class="active" href="#">Home</a></li>
+		<li><a href="home.html">Home</a></li>
 		<li><a href="lookup.html">Lookup</a></li>
 		<li><a href="schedule.html">Schedule</a></li>
 		<li><a href="newemployee.html">New Employee</a></li>
-		<li><a href="info.html">Info</a></li>
+		<li><a href="https://treering.iowa.uiowa.edu/etimeclock/ClockLogin.aspx?c=1" target="_blank">TimeClock</a></li>
 		<li class="right"><a href="index.html">Logout</a></li>
 	</ul>
-	
 </head>
 
 <body>
 	<div class="main">
 		<h2 align="center">Edit Employee Information</h2>
+		<table align="center">
+			<colgroup>
+				<col span="2">
+			</colgroup>
+			<tr>
+				<td>
+				<form>
+					<div class="entryRow">
+						<label class="entryLabel" for="firstname">First Name:</label>
+						<input class="entryEmployee" id="firstname" type="text" align="center"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="lastname">Last Name:</label>
+						<input class="entryEmployee" id="lastname" type="text" align="center"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="studentid">Student ID#:</label>
+						<input class="entryEmployee" id="studentid" type="text" align="center" placeholder="Start with 8"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="phone">Phone:</label>
+						<input class="entryEmployee" id="phone" type="text" align="center" placeholder="555-555-5555"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="email">Email:</label>
+						<input class="entryEmployee" id="email" type="text" align="center" placeholder="example@gmail.com"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="checker">Checker:</label>
+						<input class="entryEmployee" type="checkbox" id="checker" name="checker" value=true></br>		
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="associate">Associate:</label>
+						<input class="entryEmployee" type="radio" id="role" name="role" value="associate"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="lead">Lead:</label>
+						<input class="entryEmployee" type="radio" id="role" name="role" value="lead"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="manager">Manager:</label>
+						<input class="entryEmployee" type="radio" id="role" name="role" value="manager"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="mondayStart">Monday:</label>
+						<input class="entryTime" id="mondayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="mondayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="tuesdayStart">Tuesday:</label>
+						<input class="entryTime" id="tuesdayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="tuesdayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="wednesdayStart">Wednesday:</label>
+						<input class="entryTime" id="wednesdayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="wednesdayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="thursday">Thursday:</label>
+						<input class="entryTime" id="thursdayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="thursdayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="friday">Friday:</label>
+						<input class="entryTime" id="fridayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="fridayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="saturday">Saturday:</label>
+						<input class="entryTime" id="saturdayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="saturdayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+					<div class="entryRow">
+						<label class="entryLabel" for="sundayStart">Sunday:</label>
+						<input class="entryTime" id="sundayStart" type="text" align="center" placeholder="Start"></br>
+						<input class="entryTime" id="sundayStop" type="text" align="center" placeholder="Stop"></br>
+					</div>
+				</form>
+				</td>
+				<td align="center">
+					<p>Current User Information</p>
+					<div id="firstnameText" align="center"></div>
+					<div id="studentidText" align="center"></div>
+					<div id="phoneText" align="center"></div>
+					<div id="emailText" align="center"></div>
+					<div id="checkerText" align="center"></div>
+					<div id="roleText" align="center"></div>
+					<div id="mondayStartText" align="center"></div>
+					<div id="mondayStopText" align="center"></div>
+					<div id="tuesdayStartText" align="center"></div>
+					<div id="tuesdayStopText" align="center"></div>
+					<div id="wednesdayStartText" align="center"></div>
+					<div id="wednesdayStopText" align="center"></div>
+					<div id="thursdayStartText" align="center"></div>
+					<div id="thursdayStopText" align="center"></div>
+					<div id="fridayStartText" align="center"></div>
+					<div id="fridayStopText" align="center"></div>
+					<div id="saturdayStartText" align="center"></div>
+					<div id="saturdayStopText" align="center"></div>
+					<div id="sundayStartText" align="center"></div>
+					<div id="sundayStopText" align="center"></div>
+				</td>
+			</tr>
+		</table>
+		<div class="error">
+			<div id="error" align="center"><span style="color:red" id="error"></span></div>
+		</div>
+		<div class="endForm">
+			<button class='submit' type='submit' align="center" onclick="editUser()">Submit</a>
+		</div>
 	</div>
 <footer>
 	<p>Created by Ethan Tabbert	<a href="mailto:ethanetabbert@gmail.com">Contact</a></p>

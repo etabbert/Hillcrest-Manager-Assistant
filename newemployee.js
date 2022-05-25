@@ -1,4 +1,5 @@
 async function writeEmployee() {
+	
 	if (document.getElementById('firstname').value == "") {
 		document.getElementById('error').innerHTML = "Please enter the employee first name";
 	} else {
@@ -75,6 +76,7 @@ async function writeEmployee() {
 	sundayStopInput = document.getElementById('sundayStop').value;
 	let sundayStop = ('' + sundayStopInput).replace(/\D/g, '');	
 	
+	
 	let myResponse = await fetch("newemployee.php", {
 		method: 'POST',
 		headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
@@ -82,7 +84,7 @@ async function writeEmployee() {
 	});
 	
 	let result = await myResponse.json();
-    let output = JSON.stringify(result)
+    let output = JSON.stringify(result);
     console.log(output)
 	
 	if (output == '"Incomplete"') {
