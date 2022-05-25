@@ -1,6 +1,5 @@
 async function writeEmployee() {
-	value = parseInt(0600);
-	
+
 	if (document.getElementById('firstname').value == "") {
 		document.getElementById('error').innerHTML = "Please enter the employee first name";
 	} else {
@@ -182,17 +181,30 @@ async function writeEmployee() {
 }
 
 function setStart(start) {
-	if (start) {
-		if (start < 600) {
-			return 600;
-		}
+	if (parseInt(start) < 600) {
+		return '600';
+	} else {
+		return start;
 	}
 }
 
 function setStop(stop) {
-	if (stop) {
-		if (stop > 2000) {
-			return 2000;
-		}
+	if (parseInt(stop) > 2000) {
+		return '2000';
+	} else {
+		return stop;
+	}
+}
+
+function test() {
+	if (document.getElementById('mondayStart').value) {
+		mondayStartInput = document.getElementById('mondayStart').value;
+		console.log(mondayStartInput);
+		var mondayStartClean = ('' + mondayStartInput).replace(/\D/g, '');
+		console.log(mondayStartClean);
+		var mondayStart = setStart(mondayStartClean);
+		console.log(mondayStart);
+	} else {
+		mondayStart = null;
 	}
 }
