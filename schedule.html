@@ -26,16 +26,6 @@
 	<div class="main" align="center">
 		<h2 align="center">Generate Schedule</h2>
 		<form class="query">
-			<label for="shift_type">Choose Shift:</label>
-			<select name=shift_types id="shift_type">
-    			<option value="shift1">shift 1</option>
-  				<option value="shift2">shift 2</option>
-  				<option value="shift3">shift 3</option>
-  				<option value="shift4">shift 4</option>
-				<option value="shift5">shift 5</option>
-				<option value="shift6">shift 6</option>
-			</select></br></br>
-
 			<label for="shift_type">Choose Week Day:</label>
 			<select name=weekdays id="week_day">
     			<option value="Sunday">Sunday</option>
@@ -46,6 +36,18 @@
 				<option value="Friday">Friday</option>
 				<option value="Saturday">Saturday</option>
 			</select></br></br>
+
+			<label for="shift_type">Choose Shift:</label>
+			<select name=shift_types id="shift_type">
+    			<option value="shift1">shift 1</option>
+  				<option value="shift2">shift 2</option>
+  				<option value="shift3">shift 3</option>
+  				<option value="shift4">shift 4</option>
+				<option value="shift5">shift 5</option>
+				<option value="shift6">shift 6</option>
+			</select></br></br>
+
+		
 			<div>
 				<button class='submit' type='button' align="center" onclick="randomizeList()">Generate</a>
 			</div>

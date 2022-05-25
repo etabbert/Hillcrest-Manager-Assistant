@@ -36,8 +36,9 @@ function shuffle(array) {
   function checkType(input_type){
       let time = [];
     if (input_type == 'shift1'){
-        time[0] = 0600;
+        time[0] = 600;
         time[1] = 0800;
+        console.log("Time start " + time[0]);
     }
     else if (input_type == 'shift2'){
         time[0] = 0800;
@@ -95,24 +96,37 @@ async function randomizeList(){
     var input_type = document.getElementById('shift_type').value;
 
     if (input_day == "Monday"){
+        //Use monday start stop
         checkType(input_type);
     }
     else if (input_day == 'Tuesday'){
+        //Use tuesday start stop
         checkType(input_type);
     }
     else if (input_day == 'Wednesday'){
+        //Use wednesday start stop
         checkType(input_type);
     }
     else if (input_day == "Thursday"){
+        //Use thursday start stop
         checkType(input_type);
     }
     else if (input_day == "Friday"){
+        //Use friday start stop
         checkType(input_type);
     }
     else if (input_day == "Saturday"){
+        //Use saturday start stop
         checkType(input_type);
     }
     else if (input_day == "Sunday"){
+        //Use sunday start stop
+
+        /*
+
+        SELECT * FROM employees WHERE sundayStart > x AND sundayStop < y
+
+        */
         checkType(input_type);
     }
     else{
