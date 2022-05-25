@@ -1,4 +1,5 @@
 async function writeEmployee() {
+	value = parseInt(0600);
 	
 	if (document.getElementById('firstname').value == "") {
 		document.getElementById('error').innerHTML = "Please enter the employee first name";
@@ -50,7 +51,6 @@ async function writeEmployee() {
 	
 	
 	if (document.getElementById('mondayStart').value) {
-		console.log("test");
 		mondayStartInput = document.getElementById('mondayStart').value;
 		var mondayStartClean = ('' + mondayStartInput).replace(/\D/g, '');
 		var mondayStart = setStart(mondayStartClean);
@@ -61,7 +61,7 @@ async function writeEmployee() {
 	if (document.getElementById('mondayStop').value) {
 		mondayStopInput = document.getElementById('mondayStop').value;
 		var mondayStopClean = ('' + mondayStopInput).replace(/\D/g, '');
-		var mondayStop = setStop(mondayStopClean);
+		var mondayStop = parseInt(setStop(mondayStopClean), 10);
 	} else {
 		mondayStop = null;
 	}
@@ -177,7 +177,6 @@ async function writeEmployee() {
 	if (output == '"Incomplete"') {
 		document.getElementById('error').innerHTML = "This employee ID is already on record!";
 	} else {
-		window.location.replace('entryComplete.html');
 		window.location.replace('entryComplete.html');
 	}
 }
