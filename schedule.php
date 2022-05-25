@@ -3,7 +3,7 @@ function findEmployee($studentid) {
 	$db = new SQLite3('db/employees.db');
 	$db->exec('BEGIN EXCLUSIVE;');
 	error_log($studentid);
-	$studentQuery = "SELECT * FROM employees WHERE studentid = '$studentid'";
+	$studentQuery = "SELECT * FROM employees WHERE mondayStart = '$mondayStart'";
 	$getStudent = $db->query($studentQuery);
 	$studentResult = $getStudent->fetchArray(SQLITE3_ASSOC);
 	$db->exec('END;');
