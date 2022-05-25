@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$postData = file_get_contents('php://input');
     $postDecoded = json_decode($postData);
 	$studentid = $postDecoded->studentid;
-    error_log("Server received student ID: " . $studentid . "\n");
+    error_log("Server received start and stop: " . $studentid . "\n");
 
     $result = editEmployee($studentid);
 

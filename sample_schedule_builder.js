@@ -33,6 +33,42 @@ function shuffle(array) {
     return array;
   }
 
+  function checkType(input_type){
+      let time = [];
+    if (input_type == 'shift1'){
+        time[0] = 0600;
+        time[1] = 0800;
+    }
+    else if (input_type == 'shift2'){
+        time[0] = 0800;
+        time[1] = 1000;
+    }
+    else if (input_type == 'shift3'){
+        time[0] = 1000;
+        time[1] = 1200;
+    }
+    else if (input_type == 'shift4'){
+        time[0] = 1200;
+        time[1] = 1400;
+    }
+    else if (input_type == 'shift5'){
+        time[0] = 1500;
+        time[1] = 1700;
+    }
+    else if (input_type == 'shift6'){
+        time[0] = 1700;
+        time[1] = 2000;
+    }
+    else{
+        console.log("INVALID TYPE INPUT")
+    }
+
+    //Test
+    console.log(time);
+    return time;
+
+  }
+
 
 //Generate and shuffle list
 async function randomizeList(){
@@ -52,8 +88,36 @@ async function randomizeList(){
 	}
 
     //Testing getting html input
-    console.log(document.getElementById('week_day').value)
-    console.log(document.getElementById('shift_type').value)
+    console.log(document.getElementById('week_day').value);
+    console.log(document.getElementById('shift_type').value);
+
+    var input_day = document.getElementById('week_day').value;
+    var input_type = document.getElementById('shift_type').value;
+
+    if (input_day == "Monday"){
+        checkType(input_type);
+    }
+    else if (input_day == 'Tuesday'){
+        checkType(input_type);
+    }
+    else if (input_day == 'Wednesday'){
+        checkType(input_type);
+    }
+    else if (input_day == "Thursday"){
+        checkType(input_type);
+    }
+    else if (input_day == "Friday"){
+        checkType(input_type);
+    }
+    else if (input_day == "Saturday"){
+        checkType(input_type);
+    }
+    else if (input_day == "Sunday"){
+        checkType(input_type);
+    }
+    else{
+        console.log("ERROR CHECKING GOES HERE");
+    }
 
     /*For php statement, general flow is mondayStart, mondayStop, etc
 
