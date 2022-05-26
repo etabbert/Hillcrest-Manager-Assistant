@@ -1,23 +1,29 @@
 <?php
-function findEmployee($studentid) {
+function findEmployee($start, $timeStart, $stop, $timeStop) {
 	$db = new SQLite3('db/employees.db');
 	$db->exec('BEGIN EXCLUSIVE;');
-	error_log($studentid);
-	$studentQuery = "SELECT * FROM employees WHERE mondayStart = '$mondayStart'";
-	$getStudent = $db->query($studentQuery);
-	$studentResult = $getStudent->fetchArray(SQLITE3_ASSOC);
+	error_log($start, $timeStart, $stop, $timeStop);
+	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $stop <= $timeStop");
+	$readResult = [];
+	while($row=$readDB->fetchArray(SQLITE3_ASSOC)){
+		$readResult = array_merge_recursive($readResult, $row);
+	}
+	
 	$db->exec('END;');
 	$db->close();
-	return $studentResult;
+	return $readResult;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$postData = file_get_contents('php://input');
     $postDecoded = json_decode($postData);
-	$studentid = $postDecoded->studentid;
-    error_log("Server received start and stop: " . $studentid . "\n");
-
-    $result = editEmployee($studentid);
+	$start = $postDecoded->start;
+	$stop = $postDecoded->stop;
+	$timeStart = $postDecoded->timeStart;
+	$timeStop = $postDecoded->timeStop;
+	
+    //error_log("Server received start and stop: " . $start . "\n");
+    $result = findEmployee($start, $timeStart, $stop, $timeStop);
 
     $jsonToSend = json_encode($result);
     error_log("Server sending response: " . $jsonToSend);
