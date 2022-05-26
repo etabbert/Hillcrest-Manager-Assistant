@@ -5,16 +5,16 @@ function findEmployee($start, $timeStart, $stop, $timeStop) {
 	error_log($start, $timeStart, $stop, $timeStop);
 	//earlier than 10am start it is breakfast
 	//$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE ($start >= $timeStart and $stop <= $timeStop) or ($start >= $timeStart and $start < $timeStop and $stop >= $timeStop) or ($start < $timeStart and $stop <= $timeStop)");
-	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $start < $timeStop");
-	$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start <= $timeStart AND $stop <= $timeStop");
+	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $timeStart BETWEEN $start AND $stop-1");
+	#$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start <= $timeStart AND $stop <= $timeStop");
 	//$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $stop < $timeStart");
 	$readResult = [];
 	while($row=$readDB->fetchArray(SQLITE3_ASSOC)){
 		$readResult = array_merge_recursive($readResult, $row);
 	}
-	while($row=$backHalf->fetchArray(SQLITE3_ASSOC)){
+	/*while($row=$backHalf->fetchArray(SQLITE3_ASSOC)){
 		$readResult = array_merge_recursive($readResult, $row);
-	}
+	}*/
 	$db->exec('END;');
 	$db->close();
 	return $readResult;
