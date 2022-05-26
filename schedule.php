@@ -3,9 +3,13 @@ function findEmployee($start, $timeStart, $stop, $timeStop) {
 	$db = new SQLite3('db/employees.db');
 	$db->exec('BEGIN EXCLUSIVE;');
 	error_log($start, $timeStart, $stop, $timeStop);
-	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $stop <= $timeStop");
+	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $start < $timeStop");
+	$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $stop <= $timeStop AND $stop > $timeStop");
 	$readResult = [];
 	while($row=$readDB->fetchArray(SQLITE3_ASSOC)){
+		$readResult = array_merge_recursive($readResult, $row);
+	}
+	while($row=$backHalf->fetchArray(SQLITE3_ASSOC)){
 		$readResult = array_merge_recursive($readResult, $row);
 	}
 	

@@ -73,13 +73,6 @@ function shuffle(array) {
 
 //Generate and shuffle list
 async function randomizeList(){
-    const test1 = ["Sebastian", true]
-    const test2 = ["Ethan", true]
-    const test3 = ["Andrea", true]
-    const test4 = ["Nick", false]
-    const test5 = ["Dan", false]
-    const test6 = ["Kyle", true]
-
     //Error handling
     if (document.getElementById('week_day').value == "") {
 		document.getElementById('error').innerHTML = "No last name provided";
@@ -152,57 +145,32 @@ async function randomizeList(){
 	});
 
     let result = await myResponse.json();
-    let output = JSON.stringify(result)
+    let output = JSON.stringify(result);
 
+    let employeeList = [];
     if (output == "[]") {
 		document.getElementById('error').innerHTML = "No employee found that fits this criteria";
 	}
     else{
-        console.log(result)
+        if ((typeof result.firstname) == "string"){
+            employeeList.push(result.firstname)
+            console.log(employeeList)
+        }
+        else{
+            for(var i = 0; i < result.firstname.length; i++){
+                employeeList.push(result.firstname[i]);
+                console.log(employeeList);
+            }
+            shuffle(employeeList);
+            console.log(employeeList);
+        }
     }
-	
-    console.log(result);
-    /*For php statement, general flow is mondayStart, mondayStop, etc
+	let daSchedule = [];
+    //let daSchedule = generateSchedule(employeeList);
 
-    - For the template: <weekday>(Start/Stop)
-    \-> weekDay represents the <weekday>
-    \-> shiftType represents the (Start/Stop)
+    console.log(daSchedule);
 
-    to pull:
-    SELECT *
-    FROM employees
-    WHERE column_name BETWEEN value1 AND value2;
-
-    NOTE: We can have separate cases for days of the week.
-    Then within the week day, we have times. Is there an easier way
-    of doing this?
-
-    e.g
-
-    if input is Monday
-        if input is Breakfast
-            pull all employees who work Monday Breakfast
-        elif input is Lunch
-            pull all employees who work Monday Lunch
-        elif input is Dinner
-            do something
-    elif input is Tuesday...
-    etc...
-
-    FOR RARE CASES (people who's shifts start and stop at abnormal times)
-    if start is after the usual start time, but ends either equal or before the stop time, put them in the list
-
-
-    */
-
-    //Here I can pull from the database instead of using these samples
-    let randomizedList = [test1,test2,test3,test4,test5,test6]
-
-    //Test Shuffle
-    shuffle(randomizedList)
-    //console.log(scheduleList)
-
-    return randomizedList
+    return daSchedule;
 }
 
 //Generate schedule for anytime
