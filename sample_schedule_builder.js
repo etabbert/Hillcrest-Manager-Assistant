@@ -95,44 +95,73 @@ async function randomizeList(){
     var input_day = document.getElementById('week_day').value;
     var input_type = document.getElementById('shift_type').value;
 
+    let time = [];
+    var start = "";
+    var stop = "";
     if (input_day == "Monday"){
         //Use monday start stop
-        checkType(input_type);
+        start = "mondayStart";
+        stop = "mondayStop";
+        time = checkType(input_type);
     }
     else if (input_day == 'Tuesday'){
         //Use tuesday start stop
-        checkType(input_type);
+        start = "tuesdayStart";
+        stop = "tuesdayStop";
+        time = checkType(input_type);
     }
     else if (input_day == 'Wednesday'){
         //Use wednesday start stop
-        checkType(input_type);
+        start = "wednesdayStart";
+        stop = "wednesdayStop";
+        time = checkType(input_type);
     }
     else if (input_day == "Thursday"){
         //Use thursday start stop
-        checkType(input_type);
+        start = "thursdayStart";
+        stop = "thursdayStop";
+        time = checkType(input_type);
     }
     else if (input_day == "Friday"){
         //Use friday start stop
-        checkType(input_type);
+        start = "fridayStart";
+        stop = "fridayStop";
+        time = checkType(input_type);
     }
     else if (input_day == "Saturday"){
         //Use saturday start stop
-        checkType(input_type);
+        start = "saturdayStart";
+        stop = "saturdayStop";
+        time = checkType(input_type);
     }
     else if (input_day == "Sunday"){
-        //Use sunday start stop
-
-        /*
-
-        SELECT * FROM employees WHERE sundayStart > x AND sundayStop < y
-
-        */
-        checkType(input_type);
+        
+        start = "sundayStart";
+        stop = "sundayStop";
+        time = checkType(input_type);
     }
     else{
         console.log("ERROR CHECKING GOES HERE");
     }
 
+
+    let myResponse = await fetch("schedule.php", {
+		method: 'POST',
+		headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+		body: JSON.stringify({start: start, stop: stop, timeStart: time[0], timeStop: time[1] })
+	});
+
+    let result = await myResponse.json();
+    let output = JSON.stringify(result)
+
+    if (output == "[]") {
+		document.getElementById('error').innerHTML = "No employee found that fits this criteria";
+	}
+    else{
+        console.log(result)
+    }
+	
+    console.log(result);
     /*For php statement, general flow is mondayStart, mondayStop, etc
 
     - For the template: <weekday>(Start/Stop)
