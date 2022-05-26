@@ -15,8 +15,6 @@ async function employeeSearch() {
 	let result = await myResponse.json();
     let output = JSON.stringify(result)
 	
-    console.log(result);
-	
 	finalText = "";
 	
 	if (output == "[]") {
