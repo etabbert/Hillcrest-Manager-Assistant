@@ -2,9 +2,6 @@
 function applyUserEdits($firstname, $lastname, $studentid, $phone, $email, $checker, $role, $mondayStart, $mondayStop, $tuesdayStart, $tuesdayStop, $wednesdayStart, $wednesdayStop, $thursdayStart, $thursdayStop, $fridayStart, $fridayStop, $saturdayStart, $saturdayStop, $sundayStart, $sundayStop) {
 	$db = new SQLite3('db/employees.db');
 	$db->exec('BEGIN EXCLUSIVE;');
-	error_log($firstname);
-	$studentQuery = "SELECT * FROM employees WHERE studentid = '$studentid'";
-	$getStudent = $db->query($studentQuery);
 
 	$updateFirstname = "UPDATE employees SET firstname = '$firstname' WHERE studentid = '$studentid'";
 	$updateLastname = "UPDATE employees SET lastname = '$lastname' WHERE studentid = '$studentid'";

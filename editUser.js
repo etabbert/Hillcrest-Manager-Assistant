@@ -226,7 +226,6 @@ async function applyEdits() {
 	
 	let result = await myResponse.json();
     let output = JSON.stringify(result);
-	console.log(result);
 	
 	if (result == "Complete") {
 		editUser();
@@ -249,4 +248,30 @@ function setStop(stop) {
 	} else {
 		return stop;
 	}
+}
+
+async function deleteEmployee() {
+	var studentid = gup("ID");
+	
+	var deleteConfirm = confirm("Delete Employee?");
+	if (deleteConfirm) {
+		let myResponse = await fetch("deleteEmployee.php", {
+		method: 'POST',
+		headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+		body: JSON.stringify({studentid: studentid})
+		});
+		
+		let result = await myResponse.json();
+		let output = JSON.stringify(result);
+		
+		if (result == "Complete") {
+			window.location.replace('employeeDeleted.html');
+		} else {
+			document.getElementById('error').innerHTML = "There was an issue deleting this employee";
+		}
+	}
+	else {
+		console.log('User not deleted')
+	}
+	
 }
