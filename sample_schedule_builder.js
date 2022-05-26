@@ -73,12 +73,12 @@ function shuffle(array) {
 
 //Generate and shuffle list
 async function randomizeList(){
-    const test1 = ["Sebastian", true]
-    const test2 = ["Ethan", true]
-    const test3 = ["Andrea", true]
-    const test4 = ["Nick", false]
-    const test5 = ["Dan", false]
-    const test6 = ["Kyle", true]
+    //const test1 = ["Sebastian", true]
+    //const test2 = ["Ethan", true]
+    //const test3 = ["Andrea", true]
+    //const test4 = ["Nick", false]
+    //const test5 = ["Dan", false]
+    //const test6 = ["Kyle", true]
 
     //Error handling
     if (document.getElementById('week_day').value == "") {
