@@ -170,7 +170,7 @@ async function randomizeList(){
 
     console.log(daSchedule);
 
-    return daSchedule;
+    return employeeList;
 }
 
 //Generate schedule for anytime
