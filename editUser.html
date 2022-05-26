@@ -23,12 +23,13 @@
 <body>
 	<div class="main">
 		<h2 align="center">Edit Employee Information</h2>
+		<div id="status" align="center"></div>
 		<table align="center">
 			<colgroup>
 				<col span="2">
 			</colgroup>
 			<tr>
-				<td>
+				<td class="data">
 				<form>
 					<div class="entryRow">
 						<label class="entryLabel" for="firstname">First Name:</label>
@@ -37,10 +38,6 @@
 					<div class="entryRow">
 						<label class="entryLabel" for="lastname">Last Name:</label>
 						<input class="entryEmployee" id="lastname" type="text" align="center"></br>
-					</div>
-					<div class="entryRow">
-						<label class="entryLabel" for="studentid">Student ID#:</label>
-						<input class="entryEmployee" id="studentid" type="text" align="center" placeholder="Start with 8"></br>
 					</div>
 					<div class="entryRow">
 						<label class="entryLabel" for="phone">Phone:</label>
@@ -134,7 +131,7 @@
 			<div id="error" align="center"><span style="color:red" id="error"></span></div>
 		</div>
 		<div class="endForm">
-			<button class='submit' type='submit' align="center" onclick="editUser()">Submit</a>
+			<button class='submit' type='submit' align="center" onclick="applyEdits()">Submit</a>
 		</div>
 	</div>
 <footer>

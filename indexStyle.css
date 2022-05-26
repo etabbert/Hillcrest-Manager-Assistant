@@ -16,6 +16,7 @@
 	
 	.data {
 		vertical-align: top;
+		border-bottom: none;
 	}
 	
 	tr {
