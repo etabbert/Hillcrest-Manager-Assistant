@@ -5,7 +5,7 @@ function findEmployee($start, $timeStart, $stop, $timeStop) {
 	error_log($start, $timeStart, $stop, $timeStop);
 	//earlier than 10am start it is breakfast
 	//$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE ($start >= $timeStart and $stop <= $timeStop) or ($start >= $timeStart and $start < $timeStop and $stop >= $timeStop) or ($start < $timeStart and $stop <= $timeStop)");
-	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $timeStart BETWEEN $start AND $stop-1");
+	$readDB = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $timeStart BETWEEN $start AND $stop-1 OR $start BETWEEN $timeStart AND $timeStop-1");
 	#$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start <= $timeStart AND $stop <= $timeStop");
 	//$backHalf = $db->query("SELECT firstname,lastname,$start,$stop FROM employees WHERE $start >= $timeStart AND $stop < $timeStart");
 	$readResult = [];
