@@ -47,21 +47,201 @@
 				<option value="shift6">5pm-Close</option>
 			</select></br></br>
 
-		
-			<div>
-				<button class='submit' type='button' align="center" onclick="randomizeList()">Generate</a>
-			</div>
-			<div>
-				<button class='submit' type='button' align="center" onclick=window.print()>Print</a>
-			</div>
-
 			<div class="error">
 				<div id="error" align="center"><span style="color:red" id="error"></span></div>
 			</div>
-			<div class="queryResults">
-				<div id="queryResults" align="center"><span id="queryResults"</span></div>
-				<div id="debug" align="center"><span id="debug"</span></div>
+		
+			<div>
+				<button class='generate' type='button' align="center" onclick="randomizeList()">Generate</a>
+			</div>
+			
+			<div id="scheduleTitle"></div>
+			
+			<table align="center" class="scheduleTable">
+				<colgroup>
+					<col span="6">
+				</colgroup>
+					<tr align="center">
+						<th style="width: 130px" class="scheduleHeaders">Station:</th>
+						<th style="width: 200px" class="scheduleHeaders">Student:</th>
+						<th style="width: 130px" class="scheduleHeaders">Station:</th>
+						<th style="width: 200px" class="scheduleHeaders">Student:</th>
+						<th style="width: 130px" class="scheduleHeaders">Station:</th>
+						<th style="width: 200px" class="scheduleHeaders">Student:</th>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="checker">Checker:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="checker"></p>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="wok">Wok:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="wok"></p>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="milkbev">Milk and Bev:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="milkbev"></p>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="fields1">Fields:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="fields1"></p>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="grill1">Grill:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="grill1"></p>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="dish1">Dish:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="dish1"></p>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="fields2">Fields:</label>
+						</td>
+						<td class="scheduleData">
+							<p id="fields2"></p>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="grill2">Grill:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="grill2"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="dish2">Dish:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="dish2"></div>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="fields3">Fields:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="fields3"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="burrito1">Burrito:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="burrito1"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="dish3">Dish:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="dish3"></div>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="homecooking1">Home Cooking:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="homecooking1"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="burrito2">Burrito:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="burrito2"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="diningNorth">North Dining:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="diningNorth"></div>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="homecooking2">Home Cooking:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="homecooking2"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="burrito3">Burrito:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="burrito3"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="diningEast">East Dining:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="diningEast"></div>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="pizza1">Pizza:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="pizza1"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="desserts">Desserts:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="desserts"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="diningSouth">South Dining:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="diningSouth"></div>
+						</td>
+					</tr>
+					<tr class="scheduleRow">
+						<td class="scheduleData">
+							<label class="entryLabel" for="pizza2">Pizza:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="pizza2"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="utility">Utility:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="utility"></div>
+						</td>
+						<td class="scheduleData">
+							<label class="entryLabel" for="utilFloat">Utility/Dish Float:</label>
+						</td>
+						<td class="scheduleData">
+							<div id="utilFloat"></div>
+						</td>
+					</tr>
+				</div>
+			</table>
 		</form>
+		
+		<label class="entryLabel" for="managers" align="bottom">Managers:</label>
+		<div id="managers"></div>
+		<div>
+			</br></br><button class='submit' type='button' align="center" onclick=window.print()>Print</a>
+		</div>
+		<div class="queryResults">
+			<div id="queryResults" align="center"><span id="queryResults"</span></div>
+			<div id="debug" align="center"><span id="debug"</span></div>
+		</div>
 		
 	</div>
 

@@ -38,7 +38,6 @@ function shuffle(array) {
     if (input_type == 'shift1'){
         time[0] = 600;
         time[1] = 0800;
-        console.log("Time start " + time[0]);
     }
     else if (input_type == 'shift2'){
         time[0] = 0800;
@@ -65,7 +64,7 @@ function shuffle(array) {
     }
 
     //Test
-    console.log(time);
+    //console.log(time);
     return time;
 
   }
@@ -82,8 +81,8 @@ async function randomizeList(){
 	}
 
     //Testing getting html input
-    console.log(document.getElementById('week_day').value);
-    console.log(document.getElementById('shift_type').value);
+    //console.log(document.getElementById('week_day').value);
+    //console.log(document.getElementById('shift_type').value);
 
     var input_day = document.getElementById('week_day').value;
     var input_type = document.getElementById('shift_type').value;
@@ -146,31 +145,69 @@ async function randomizeList(){
 
     let result = await myResponse.json();
     let output = JSON.stringify(result);
+	
+	//console.log(result);
 
     let employeeList = [];
+	let checkerCert = [];
+	let associateList = [];
+	let leadList = [];
+	let managerList = [];
+	
     if (output == "[]") {
-		document.getElementById('error').innerHTML = "No employee found that fits this criteria";
+		document.getElementById('error').innerHTML = "No employee found that fits this criteria</br></br>";
 	}
     else{
         if ((typeof result.firstname) == "string"){
-            employeeList.push(result.firstname)
-            console.log(employeeList)
-        }
-        else{
+			if (result.checker == 1 && result.role == "associate") {
+				checkerCert.push(result.firstname);
+			} else if (result.role == "associate") {
+				associateList.push(result.firstname);
+			} else if (result.role == "lead") {
+				leadList.push(result.firstname);
+			} else if (result.role == "manager") {
+				managerList.push(result.firstname)
+			}
+			if (result.role != "manager") {
+				employeeList.push(result.firstname);
+			}
+			
+        } else {
             for(var i = 0; i < result.firstname.length; i++){
-                employeeList.push(result.firstname[i]);
-                console.log(employeeList);
+				if (result.checker[i] == 1 && result.role[i] == "associate") {
+					checkerCert.push(result.firstname[i]);
+				} else if (result.role[i] == "associate") {
+					associateList.push(result.firstname[i]);
+				} else if (result.role[i] == "lead") {
+					leadList.push(result.firstname[i]);
+				} else if (result.role[i] == "manager") {
+					managerList.push(result.firstname[i])
+				}
+				if (result.role[i] != "manager") {
+					employeeList.push(result.firstname[i]);
+				}
             }
-            shuffle(employeeList);
-            console.log(employeeList);
         }
+		console.log("Checkers:");
+		console.log(checkerCert);
+		console.log("Associates:");
+		console.log(associateList);
+		console.log("Leads:");
+		console.log(leadList);
+		console.log("Managers:");
+		console.log(managerList);
+		
+		shuffle(employeeList);
+		console.log("Shuffled List:");
+		console.log(employeeList);
+		
+		document.getElementById('managers').innerHTML = managerList;
     }
-	let daSchedule = [];
+	
     //let daSchedule = generateSchedule(employeeList);
+    //console.log(daSchedule);
 
-    console.log(daSchedule);
-
-    return employeeList;
+    //return employeeList;
 }
 
 //Generate schedule for anytime
@@ -205,7 +242,7 @@ function generateSchedule(shuffledList){
         }
         count = count-1;
     }
-
+	console.log(finalSchedule);
     return finalSchedule
 }
 

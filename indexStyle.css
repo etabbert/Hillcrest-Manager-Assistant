@@ -19,6 +19,23 @@
 		border-bottom: none;
 	}
 	
+	.scheduleData {
+		border: 1px solid #ddd;
+		text-align: left;
+	}
+	
+	.scheduleTable {
+		width: 100%;
+	}
+	
+	.scheduleRow {
+		height: 50px;
+	}
+	
+	.scheduleHeaders {
+		border: 1px solid #ddd;
+	}
+	
 	tr {
 		height: 50px;
 	}
@@ -214,6 +231,26 @@
 		text-align: center;
 		vertical-align: middle;
 		white-space: nowrap;
+	}
+	
+	.generate {
+		margin-right: auto;
+		appearance: none;
+		background-color: var(--accentColor);
+		border: 1px solid rgba(27, 31, 35, .15);
+		border-radius: 6px;
+		box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+		box-sizing: border-box;
+		color: #fff;
+		cursor: pointer;
+		font-family: 'Roboto Mono', monospace;
+		font-size: 15px;
+		line-height: 20px;
+		padding: 10px 30px 10px 30px;
+		text-align: center;
+		vertical-align: middle;
+		white-space: nowrap;
+		margin-bottom: 50px;
 	}
 	
 	.delete {
